@@ -7,12 +7,13 @@
     const inputNumber = document.querySelectorAll('input');
     const result = document.querySelector('.result')
     const btnStart = document.getElementById('start');
-    // const timerEl = document.querySelector('.timer');
-    // const clock = setInterval(timer, 1000);
+    const timerEl = document.querySelector('.timer');
     let randomNumberArray = [];
     let userNumberArray = [];
     let checkArray = [];
     btnStart.addEventListener('click', function(){
+        timerEl.classList.remove('d-none');
+        timer30();
         btnStart.classList.add('d-none');
         btn.classList.remove('d-none');
         generateRndNumber();
@@ -22,7 +23,8 @@
         setTimeout(function timer() {
             wrapper.classList.add('d-none');
             input.classList.remove('d-none');
-        }, 1000);
+            timerEl.classList.add('d-none');
+        }, 30000);
     })
     
     btn.addEventListener('click', function(){
@@ -80,13 +82,16 @@
         return randomNumberArray;
     }
 
-    // function timer(){
-    //     const d = new Date();
-    //     let m = d.getMinutes();
-    //     let s = d.getSeconds();
-    //     let time = m + ':' + s;
-    //     timerEl.innerHTML = time;
-    // }
+    function timer30(){
+        let sec = 29;
+        let timer = setInterval(function(){
+            timerEl.innerHTML = sec + 's';
+            sec--;
+            if (sec < 0) {
+                clearInterval(timer);
+            }
+        }, 1000);
+    }
 }) ();
 
 

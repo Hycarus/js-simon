@@ -1,1 +1,6 @@
-
+.timer{
+    position: absolute;
+    right: 70px;
+    top: 10px;
+    font-size: 100px;
+}
