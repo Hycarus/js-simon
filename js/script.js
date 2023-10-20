@@ -1,24 +1,30 @@
 (function (){
-    const btn = document.getElementById('start');
-    const btn2 = document.getElementById('reset');
+    const btn = document.getElementById('invia');
+    const btnReset = document.getElementById('reset');
     const wrapper = document.getElementById('wrapper');
     const memory = 5;
     const input = document.getElementById('input');
     const inputNumber = document.querySelectorAll('input');
     const result = document.querySelector('.result')
+    const btnStart = document.getElementById('start');
     // const timerEl = document.querySelector('.timer');
     // const clock = setInterval(timer, 1000);
     let randomNumberArray = [];
     let userNumberArray = [];
     let checkArray = [];
-    generateRndNumber();
-    wrapper.classList.add('fw-bold', 'fs-4', 'text-success');
-    wrapper.innerHTML = randomNumberArray.join(', ');
-    setTimeout(function timer() {
-        wrapper.classList.add('d-none');
-        input.classList.remove('d-none');
-    }, 1000);
-
+    btnStart.addEventListener('click', function(){
+        btnStart.classList.add('d-none');
+        btn.classList.remove('d-none');
+        generateRndNumber();
+        console.log(randomNumberArray);
+        wrapper.classList.add('fw-bold', 'fs-4', 'text-success');
+        wrapper.innerHTML = randomNumberArray.join(', ');
+        setTimeout(function timer() {
+            wrapper.classList.add('d-none');
+            input.classList.remove('d-none');
+        }, 1000);
+    })
+    
     btn.addEventListener('click', function(){
         let counter = 0
         for(let i = 0; i < inputNumber.length; i++){
@@ -43,21 +49,26 @@
         console.log(userNumberArray);
         btn.classList.add('d-none');
         input.classList.add('d-none');
-        btn2.classList.remove('d-none');
+        btnReset.classList.remove('d-none');
     })
 
-    btn2.addEventListener('click', function(){
-        btn.classList.remove('d-none');
-        input.classList.remove('d-none');
-        btn2.classList.add('d-none');
+    btnReset.addEventListener('click', function(){
+        btnStart.classList.remove('d-none');
+        btnReset.classList.add('d-none');
         // reset caselle di input
         for(let i = 0; i < inputNumber.length; i++){
             inputNumber[i].value = '';
         }
+        randomNumberArray = [];
+        userNumberArray = [];
+        checkArray = [];
         result.classList.add('d-none');
+        wrapper.classList.remove('fw-bold', 'fs-4', 'text-success');
+        wrapper.innerHTML = '';
+        wrapper.classList.remove('d-none');
     })  
     
-    console.log(randomNumberArray);
+    
 
     function generateRndNumber(){
         while(randomNumberArray.length < memory){
