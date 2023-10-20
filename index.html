@@ -27,22 +27,22 @@
 
   <body>
     
-    <div class="timer text-danger fw-bold d-none">30s</div>
+    <div class="timer fw-bold d-none">30s</div>
     <div class="d-flex flex-column align-items-center" id="app">
-        <h1 class="text-center my-4">Memory</h1>
+        <h1 class="text-center text-light my-4">Memory</h1>
         <div id="wrapper" class="d-flex flex-wrap">
 
         </div>
         <div class="result"></div>
         
         <div class="d-flex flex-column d-none" id="input">
-          <label for="input-number">Scrivi qua i numeri che ricordi, uno alla volta</label>
+          <label for="input-number" class="text-light">Scrivi qua i numeri che ricordi</label>
           <div>
-            <input id="input-number" type="text" value="">
-            <input id="" type="text" value="">
-            <input id="" type="text" value="">
-            <input id="" type="text" value="">
-            <input id="" type="text" value="">
+            <input id="input-number" type="text" value="" placeholder="Primo numero">
+            <input id="" type="text" value="" placeholder="Secondo numero">
+            <input id="" type="text" value="" placeholder="Terzo numero">
+            <input id="" type="text" value="" placeholder="Quarto numero">
+            <input id="" type="text" value="" placeholder="Quinto numero">
           </div>
         </div>
         <button id="invia" class="btn d-none btn-success my-3">Invia</button>

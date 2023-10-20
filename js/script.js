@@ -8,7 +8,7 @@
     const result = document.querySelector('.result')
     const btnStart = document.getElementById('start');
     const timerEl = document.querySelector('.timer');
-    const gong = new Audio('../audio/gong.mp3');
+    const gong = new Audio('../audio/gong.mp3'); 
     let randomNumberArray = [];
     let userNumberArray = [];
     let checkArray = [];
@@ -16,17 +16,17 @@
         timerEl.classList.remove('d-none');
         timer30();
         btnStart.classList.add('d-none');
-        btn.classList.remove('d-none');
         generateRndNumber();
         console.log(randomNumberArray);
-        wrapper.classList.add('fw-bold', 'fs-4', 'text-success');
+        wrapper.classList.add('fw-bold', 'fs-1', 'text-success');
         wrapper.innerHTML = randomNumberArray.join(', ');
         setTimeout(function timer() {
             wrapper.classList.add('d-none');
             input.classList.remove('d-none');
             timerEl.classList.add('d-none');
+            btn.classList.remove('d-none');
             gong.play();
-        }, 30000);
+        }, 3000);
     })
     
     btn.addEventListener('click', function(){
