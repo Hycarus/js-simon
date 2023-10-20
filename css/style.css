@@ -10,3 +10,16 @@ body{
     background-attachment: fixed;
     background-size: cover;
 }
+
+input{
+    width: 100px;
+    height: 100px;
+    font-size: 40px;
+}
+h1{
+    font-size: 80px;
+}
+
+.size-number{
+    font-size: 70px;
+}

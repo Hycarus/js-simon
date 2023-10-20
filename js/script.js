@@ -18,7 +18,7 @@
         btnStart.classList.add('d-none');
         generateRndNumber();
         console.log(randomNumberArray);
-        wrapper.classList.add('fw-bold', 'fs-1', 'text-success');
+        wrapper.classList.add('fw-bold', 'size-number');
         wrapper.innerHTML = randomNumberArray.join(', ');
         setTimeout(function timer() {
             wrapper.classList.add('d-none');
@@ -26,7 +26,7 @@
             timerEl.classList.add('d-none');
             btn.classList.remove('d-none');
             gong.play();
-        }, 3000);
+        }, 30000);
     })
     
     btn.addEventListener('click', function(){
