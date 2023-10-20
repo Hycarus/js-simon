@@ -5,27 +5,40 @@
     const memory = 5;
     const input = document.getElementById('input');
     const inputNumber = document.querySelectorAll('input');
+    const result = document.querySelector('.result')
     // const timerEl = document.querySelector('.timer');
     // const clock = setInterval(timer, 1000);
     let randomNumberArray = [];
     let userNumberArray = [];
     let checkArray = [];
     generateRndNumber();
-    wrapper.innerHTML = randomNumberArray;
-
+    wrapper.classList.add('fw-bold', 'fs-4', 'text-success');
+    wrapper.innerHTML = randomNumberArray.join(', ');
     setTimeout(function timer() {
         wrapper.classList.add('d-none');
         input.classList.remove('d-none');
     }, 1000);
 
     btn.addEventListener('click', function(){
+        let counter = 0
         for(let i = 0; i < inputNumber.length; i++){
             if(!isNaN(parseInt(inputNumber[i].value))){
                 userNumberArray.push(parseInt(inputNumber[i].value));
             }
             if(randomNumberArray[i] === userNumberArray[i]){
                 checkArray.push(userNumberArray[i]);
+                counter++;
             }
+        }
+        if(checkArray.length === memory){
+            result.classList.remove('d-none');
+            result.innerHTML = `Hai vinto! Questi sono i numeri che ti sei ricordato: ${checkArray.join(', ')}`;
+            result.classList.add('fs-4', 'fw-bold', 'text-success');
+
+        } else{
+            result.classList.remove('d-none');
+            result.innerHTML = `Hai perso! Ti sei ricordato solo ${counter} numeri: ${checkArray.join(', ')}`
+            result.classList.add('fs-4', 'fw-bold', 'text-success');
         }
         console.log(userNumberArray);
         btn.classList.add('d-none');
@@ -37,27 +50,18 @@
         btn.classList.remove('d-none');
         input.classList.remove('d-none');
         btn2.classList.add('d-none');
-        inputNumber.value = '';
+        // reset caselle di input
+        for(let i = 0; i < inputNumber.length; i++){
+            inputNumber[i].value = '';
+        }
+        result.classList.add('d-none');
     })  
     
     console.log(randomNumberArray);
-    // function check(){
-        
-    //     for(let i = 0; i < randomNumberArray.length; i++){
-    //         if(userNumberArray.includes(randomNumberArray[i])){
-    //             checkArray.push(userNumberArray);
-    //             console.log(checkArray);
-    //             console.log('you did it');
-    //         } else{
-    //             console.log('suca');
-    //         }
-    //     }
-        
-    // }
 
     function generateRndNumber(){
         while(randomNumberArray.length < memory){
-            let number = getRndInteger(1, 1000);
+            let number = getRndInteger(1, 10);
             if(!randomNumberArray.includes(number)){
                 randomNumberArray.push(parseInt(number));
             }
