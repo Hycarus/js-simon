@@ -2,20 +2,28 @@
     const btn = document.querySelector('button');
     const wrapper = document.getElementById('wrapper');
     const memory = 5;
+    const input = document.getElementById('input');
+    const inputNumber = document.getElementById('input-number');
     // const timerEl = document.querySelector('.timer');
     // const clock = setInterval(timer, 1000);
-    let randomNumberArray = []
-    let userNumber;
+    let randomNumberArray = [];
+    let userNumberArray = [];
+
     generateRndNumber();
     wrapper.innerHTML = randomNumberArray;
+
     setTimeout(function timer() {
-        console.log('You clicked the button!');
-        wrapper.classList.add('d-none');    
-    }, 2000);
+        wrapper.classList.add('d-none');
+        input.classList.remove('d-none');
+    }, 1000);
+
     btn.addEventListener('click', function(){
-        wrapper.innerHTML = '';
+        userNumberArray.push(inputNumber.value);
+        console.log(userNumberArray);
+        inputNumber.value = '';
     })
 
+    
     function generateRndNumber(){
         while(randomNumberArray.length < memory){
             let number = getRndInteger(1, 1000);
