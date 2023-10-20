@@ -8,6 +8,7 @@
     const result = document.querySelector('.result')
     const btnStart = document.getElementById('start');
     const timerEl = document.querySelector('.timer');
+    const gong = new Audio('../audio/gong.mp3');
     let randomNumberArray = [];
     let userNumberArray = [];
     let checkArray = [];
@@ -24,6 +25,7 @@
             wrapper.classList.add('d-none');
             input.classList.remove('d-none');
             timerEl.classList.add('d-none');
+            gong.play();
         }, 30000);
     })
     
